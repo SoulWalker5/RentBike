@@ -1,0 +1,17 @@
+<div class="ml-1 mt-3 mb-1">Avaible <i class="fas fa-bicycle"> ({{service.freeBikes?.length}})</i></div>
+<div class="row mt-1 mb-1 font-weight-bold">
+    <div class="col-md-3">Bike Name</div>
+    <div class="col-md-3">Bike Type</div>
+    <div class="col-md-3">Rent Price</div>
+    <div class="col-md-3">Actions</div>
+</div>
+<div class="row bg-white ml-1 mr-0 mb-2" *ngFor="let bike of service.freeBikes">
+    <div class="col-md-3 mt-2 mb-2">{{bike.BikeName}}</div>
+    <div class="col-md-3 mt-2 mb-2">{{getBikeTypeByFind(bike.BikeTypeId)?.Name}}</div>
+    <div class="col-md-3 mt-2 mb-2">${{bike.BikePrice}}</div>
+    <div class="col-md-3 mt-2 mb-2">
+        <a class="btn btn-primary btn-sm text-white" (click)="onRent(bike)">Rent <i class="fas fa-bicycle"></i></a>
+        <i class="far fa-trash-alt fa-lg text-danger ml-3" data-toggle="tooltip" data-placement="right" title="Delete"
+            (click)="onDelete(bike.BikeId)"></i>
+    </div>
+</div>
